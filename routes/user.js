@@ -1,24 +1,11 @@
-const express=require("express");
-const {Router}=express.Router;
-
+const {Router}=require("express");
 const UserRouter=Router();
+const {handleUserSignup, handleUserSignin, coursePurchasedByUser}=require("../controllers/usersController")
 
-UserRouter.post("/signup",(req,res)=>{
-    res.json({
-        message:"Signup"
-    })
-});
+UserRouter.post("/signup",handleUserSignup);
 
-UserRouter.post("/signup",(req,res)=>{
-    res.json({
-        message:"Signin"
-    })
-});
+UserRouter.post("/signup",handleUserSignin);
 
-UserRouter.get("/purchases",(req,res)=>{
-    res.json({
-        message:"Your Courses"
-    })
-});
+UserRouter.get("/purchases",coursePurchasedByUser);
 
 module.exports=UserRouter;

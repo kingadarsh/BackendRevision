@@ -1,21 +1,10 @@
-const express=require("express");
-const {Router}=express.Router;
-
-
+const {Router}=require("express");
+const {previewCourses,buyedCourses}=require("../controllers/courseController")
 const CourseRouter=Router();
 
+CourseRouter.get("/preview",previewCourses);
 
 
+CourseRouter.post("/buy",buyedCourses);
 
-app.get("/app/v1/course/preview",(req,res)=>{
-    res.jsonp({
-        message:"All courses"
-    })
-})
-
-
-app.post("/app/v1/course/buy",(req,res)=>{
-    res.json({
-        message:"Buy Here"
-    })
-})
+module.exports=CourseRouter;
